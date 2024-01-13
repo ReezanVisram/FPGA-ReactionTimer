@@ -5,6 +5,8 @@ module tbReactionTimer();
   // Registers
   reg clk = 0;
   reg ck_rst;
+  reg [3:0] btn;
+
   wire ck_io0;
   wire ck_io1;
   wire ck_io2;
@@ -17,16 +19,36 @@ module tbReactionTimer();
   wire ck_io9;
   wire ck_io10;
   wire ck_io11;
+  wire [3:0] leds;
 
   parameter clk_period = 10;
 
   // UUT
-  ReactionTimer rt(clk, ck_rst, ck_io0, ck_io1, ck_io2, ck_io3, ck_io4, ck_io5, ck_io6, ck_io7, ck_io8, ck_io9, ck_io10, ck_io11);
+  ReactionTimer rt(
+                  .clk(clk),
+                  .ck_rst(ck_rst),
+                  .btn(btn),
+                  .ck_io0(ck_io0),
+                  .ck_io1(ck_io1),
+                  .ck_io2(ck_io2),
+                  .ck_io3(ck_io3),
+                  .ck_io4(ck_io4),
+                  .ck_io5(ck_io5),
+                  .ck_io6(ck_io6),
+                  .ck_io7(ck_io7),
+                  .ck_io8(ck_io8),
+                  .ck_io9(ck_io9),
+                  .ck_io10(ck_io10),
+                  .ck_io11(ck_io11),
+                  .leds(leds)
+                );
 
   initial
   begin
-    ck_rst = 0;
-    #10 ck_rst = 1;
+    ck_rst = 1; btn = 4'b0000;
+    #10000 ck_rst = 0;
+    #10000 ck_rst = 1;
+    #10 $finish;
   end
 
   always

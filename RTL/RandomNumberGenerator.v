@@ -1,4 +1,4 @@
-module PseudoRandomGenerator(
+module RandomNumberGenerator(
     input [15:0] seed,
     input enable,
     output reg [15:0] pseudoRandomNumber

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module DigitManager(
-    input clk,
+    input clk5Hz,
     input reset_n,
     input w,
     output reg [3:0] z
@@ -27,7 +27,7 @@ module DigitManager(
     endcase
   end
 
-  always @(posedge clk)
+  always @(posedge clk5Hz)
   begin
     if (!reset_n)
       currentState <= A;

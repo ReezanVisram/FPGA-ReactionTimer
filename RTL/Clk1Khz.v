@@ -1,23 +1,23 @@
 `timescale 1ns / 1ps
 
-module Clk1Hz(
+module Clk1Khz(
     input clk,
-    output reg clk1Hz
+    output reg clk1Khz
   );
 
-  reg [25:0] counter;
+  reg [15:0] counter;
   initial
   begin
     counter = 0;
-    clk1Hz = 0;
+    clk1Khz = 0;
   end
 
   always @(posedge clk)
   begin
     if (counter == 0)
     begin
-      counter <= 49999999;
-      clk1Hz <= ~clk1Hz;
+      counter <= 49999;
+      clk1Khz <= ~clk1Khz;
     end
     else
     begin

@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 
-module LedBlinker(
+module LEDBlinker(
     input clk,
     input waitingToStart,
-    input turnOnLedForTest,
-    output [3:0] leds
+    input turnOnLEDForTest,
+    output reg [3:0] leds
   );
 
   reg [3:0] led_value = 4'b0000;
@@ -14,7 +14,6 @@ module LedBlinker(
   initial
   begin
     counter = 0;
-    clk1hz = 0;
     leds = leds_val;
   end
 
@@ -33,7 +32,7 @@ module LedBlinker(
         counter <= counter - 1;
       end
     end
-    else if (turnOnLedForTest)
+    else if (turnOnLEDForTest)
     begin
       leds = 4'b0001;
     end

@@ -4,6 +4,7 @@ module tbTimerManager();
 
   // Registers
   reg clk = 0;
+  reg clk1Khz = 0;
   reg ck_reset;
   reg reset_n;
   reg [3:0] btn;
@@ -15,9 +16,10 @@ module tbTimerManager();
   wire [3:0] leds;
 
   parameter clk_period = 10;
+  parameter clk1Khz_period = 1000000;
 
   // UUT
-  TimerManager tm(clk, ck_reset, reset_n, btn, waitingToStart, turnOnLEDForTest, turnOnDigitsAfterTest, timeElapsed);
+  TimerManager tm(clk, clk1Khz, ck_reset, reset_n, btn, waitingToStart, turnOnLEDForTest, turnOnDigitsAfterTest, timeElapsed);
 
   initial
   begin
@@ -29,13 +31,17 @@ module tbTimerManager();
     #100000 ck_reset = 1;
 
     wait(tm.turnOnLEDForTest);
-    #100 btn = 4'b0001;
-    #10 $finish;
+    #1000000000 btn = 4'b0001;
+    #10000 $finish;
   end
 
   always
   begin
     #(clk_period/2) clk = ~clk;
+  end
+  always
+  begin
+    #(clk1Khz_period/2) clk1Khz = ~clk1Khz;
   end
 
 endmodule
