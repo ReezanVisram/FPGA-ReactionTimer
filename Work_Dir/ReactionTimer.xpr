@@ -60,7 +60,7 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="arty-s7-50"/>
     <Option Name="FeatureSet" Val="FeatureSet_Classic"/>
-    <Option Name="WTXSimLaunchSim" Val="35"/>
+    <Option Name="WTXSimLaunchSim" Val="56"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -128,6 +128,22 @@
       </File>
       <File Path="$PPRDIR/../RTL/ReactionTimer.v">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../RTL/RandomNumberGenerator.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../RTL/LedBlinker.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -252,6 +268,7 @@
       </Config>
     </FileSet>
     <FileSet Name="tbTimerManager" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/tbTimerManager" RelGenDir="$PGENDIR/tbTimerManager">
+      <Filter Type="Srcs"/>
       <File Path="$PPRDIR/../Testbenches/tbTimerManager.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -274,6 +291,7 @@
       </Config>
     </FileSet>
     <FileSet Name="tbClk1Hz" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/tbClk1Hz" RelGenDir="$PGENDIR/tbClk1Hz">
+      <Filter Type="Srcs"/>
       <File Path="$PPRDIR/../Testbenches/tbClk1Hz.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
