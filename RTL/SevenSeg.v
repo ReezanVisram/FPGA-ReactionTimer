@@ -50,13 +50,13 @@ module SevenSeg (
         hundredsDigit = 1;
         thousandsDigit = 1;
         digitToDisplay = timeToDisplay % 10;
-        aSegment = segmentsToDisplay[0];
-        bSegment = segmentsToDisplay[1];
-        cSegment = segmentsToDisplay[2];
+        aSegment = segmentsToDisplay[6];
+        bSegment = segmentsToDisplay[5];
+        cSegment = segmentsToDisplay[4];
         dSegment = segmentsToDisplay[3];
-        eSegment = segmentsToDisplay[4];
-        fSegment = segmentsToDisplay[5];
-        gSegment = segmentsToDisplay[6];
+        eSegment = segmentsToDisplay[2];
+        fSegment = segmentsToDisplay[1];
+        gSegment = segmentsToDisplay[0];
         decimalPoint = 0;
       end
       4'b0010:
@@ -66,13 +66,13 @@ module SevenSeg (
         hundredsDigit = 1;
         thousandsDigit = 1;
         digitToDisplay = (timeToDisplay % 100) / 10;
-        aSegment = segmentsToDisplay[0];
-        bSegment = segmentsToDisplay[1];
-        cSegment = segmentsToDisplay[2];
+        aSegment = segmentsToDisplay[6];
+        bSegment = segmentsToDisplay[5];
+        cSegment = segmentsToDisplay[4];
         dSegment = segmentsToDisplay[3];
-        eSegment = segmentsToDisplay[4];
-        fSegment = segmentsToDisplay[5];
-        gSegment = segmentsToDisplay[6];
+        eSegment = segmentsToDisplay[2];
+        fSegment = segmentsToDisplay[1];
+        gSegment = segmentsToDisplay[0];
         decimalPoint = 0;
       end
       4'b0100:
@@ -82,13 +82,13 @@ module SevenSeg (
         hundredsDigit = 0;
         thousandsDigit = 1;
         digitToDisplay = (timeToDisplay % 1000) / 100;
-        aSegment = segmentsToDisplay[0];
-        bSegment = segmentsToDisplay[1];
-        cSegment = segmentsToDisplay[2];
+        aSegment = segmentsToDisplay[6];
+        bSegment = segmentsToDisplay[5];
+        cSegment = segmentsToDisplay[4];
         dSegment = segmentsToDisplay[3];
-        eSegment = segmentsToDisplay[4];
-        fSegment = segmentsToDisplay[5];
-        gSegment = segmentsToDisplay[6];
+        eSegment = segmentsToDisplay[2];
+        fSegment = segmentsToDisplay[1];
+        gSegment = segmentsToDisplay[0];
         decimalPoint = 0;
       end
       4'b1000:
@@ -111,13 +111,13 @@ module SevenSeg (
         end
         else
         begin
-          aSegment = segmentsToDisplay[0];
-          bSegment = segmentsToDisplay[1];
-          cSegment = segmentsToDisplay[2];
+          aSegment = segmentsToDisplay[6];
+          bSegment = segmentsToDisplay[5];
+          cSegment = segmentsToDisplay[4];
           dSegment = segmentsToDisplay[3];
-          eSegment = segmentsToDisplay[4];
-          fSegment = segmentsToDisplay[5];
-          gSegment = segmentsToDisplay[6];
+          eSegment = segmentsToDisplay[2];
+          fSegment = segmentsToDisplay[1];
+          gSegment = segmentsToDisplay[0];
           decimalPoint = 0;
         end
 

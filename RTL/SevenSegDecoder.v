@@ -9,7 +9,7 @@ module SevenSegDecoder(
   begin
     case(digit)
       4'b0000:
-        segments = 7'b0000000;
+        segments = 7'b1111110;
       4'b0001:
         segments = 7'b0110000;
       4'b0010:

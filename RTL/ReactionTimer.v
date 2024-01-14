@@ -47,7 +47,6 @@ module ReactionTimer(
                  .clk(clk),
                  .clk1Khz(clk1Khz),
                  .ck_reset(ck_rst),
-                 .reset_n(ck_rst),
                  .btn(btn),
                  .waitingToStart(waitingToStart),
                  .turnOnLEDForTest(turnOnLEDForTest),

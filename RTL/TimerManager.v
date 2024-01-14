@@ -4,7 +4,6 @@ module TimerManager(
     input clk,
     input clk1Khz,
     input ck_reset,
-    input reset_n,
     input [3:0] btn,
     output reg waitingToStart,
     output reg turnOnLEDForTest,
@@ -19,7 +18,7 @@ module TimerManager(
   reg [2:0] currentState;
   reg [2:0] nextState;
   reg [15:0] timeToStart;
-  wire [15:0] timeToWait;
+  wire [13:0] timeToWait;
   reg [15:0] timeSinceStart;
 
   initial
@@ -30,12 +29,15 @@ module TimerManager(
     timeElapsed = 0;
     turnOnDigitsAfterTest = 0;
     timeSinceStart = 0;
+    currentState <= A;
+    nextState <= A;
   end
 
   RandomNumberGenerator rng(
-                          .seed(timeToStart),
+                          .clk(clk),
                           .enable(calculateRandomNumber),
-                          .pseudoRandomNumber(timeToWait)
+                          .seed(timeToStart),
+                          .lfsr_out(timeToWait)
                         );
 
   always @( * )
@@ -59,6 +61,7 @@ module TimerManager(
       D:
       begin
         turnOnLEDForTest = 1;
+        calculateRandomNumber = 0;
       end
       E:
       begin
@@ -71,18 +74,15 @@ module TimerManager(
   always @(posedge clk)
   begin
     timeToStart <= timeToStart + 1;
-    if (!reset_n)
-      currentState <= A;
-    else
-      currentState <= nextState;
-    if (!waitingToStart)
-      timeSinceStart <= timeSinceStart + 1;
+    currentState <= nextState;
   end
 
   always @(posedge clk1Khz)
   begin
     if (turnOnLEDForTest)
       timeElapsed <= timeElapsed + 1;
+    if (!waitingToStart)
+      timeSinceStart <= timeSinceStart + 1;
   end
 
   always @( * )

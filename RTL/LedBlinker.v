@@ -34,7 +34,7 @@ module LEDBlinker(
     end
     else if (turnOnLEDForTest)
     begin
-      leds = 4'b0001;
+      leds <= 4'b0001;
     end
   end
 endmodule

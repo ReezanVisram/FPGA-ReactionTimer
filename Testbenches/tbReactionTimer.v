@@ -45,10 +45,13 @@ module tbReactionTimer();
 
   initial
   begin
-    ck_rst = 1; btn = 4'b0000;
+    ck_rst = 1;
+    btn = 4'b0000;
     #10000 ck_rst = 0;
-    #10000 ck_rst = 1;
-    #10 $finish;
+    #1000000 ck_rst = 1;
+    wait(rt.leds[1] == 0 && rt.leds[0] == 1);
+    #200000000 btn = 4'b0001;
+    #60000000 $finish;
   end
 
   always
