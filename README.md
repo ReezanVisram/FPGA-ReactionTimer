@@ -21,18 +21,8 @@ The FPGA Reaction Timer is a pure hardware implementation of a reaction time tes
 
 **To run this project on hardware, you will require the Arty S7-50 board from Digilent, which can be found [here](https://digilent.com/reference/programmable-logic/arty-s7/start), as well as a 4-Digit 7-Segment display, breadboard, 4 220 ohm resistors and some jumpers.**
 
-It is not feasible for anyone who does not have the Arty S7-50 board and the rest of the required hardware to try out this project, so please check out the demo video below!
-
 1. Follow the Circuit Diagram below to connect your Arty S7-50 board to your 4-Digit, 7-Segment Display
 2. Clone this repo
 3. Open the `ReactionTimer.xpr` file found in `Work_Dir` in Vivado 2023.2+
 4. Run Synthesis, Implementation, and Generate Bitstream, before downloading the created `.bit` file to the board using a USB cable.
 5. Start testing your reaction time!
-
-### Circuit Diagram
-
-Coming soon!
-
-### Demo Video
-
-Coming soon!
